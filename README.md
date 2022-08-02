@@ -49,7 +49,7 @@ that a result of (integer) division times the divisor plus modulo add up the ori
 In the event of array overflow, the overflowing cipher is discarded, so just like with any other data type, it is most recommended
 to proceed with caution when e.g. adding two large (relatively to the size of the data type) numbers. For example adding a+a,
 where BigInt a has '6' in position 199 (or other value of N-1 in the event of changing BigInt's range), the operator + will return
-a BigInt with a '2' in position 199 and the carry, hence it cannot be added anywhere, is simply deleted when the function resolves.
+a BigInt with a '2' in position 199 and the carry, since it cannot be added anywhere, is simply deleted when the function resolves.
 
 
 **Author's notes:**
