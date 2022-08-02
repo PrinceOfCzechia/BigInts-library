@@ -60,9 +60,14 @@ deems they might come in handy while using the library for actual calculations o
 of them are redundant though.
 
 
+Aside from logical errors, which are hopefully tackled by now, only place where something could go wrong are the constructors,
+or rather invalid inputs into constructors. This issue is tackled via an exception and any input, which is not among '0' and '9'
+is changed to '0'. The excpetion lets the user know that it changed their values and the calculations may potentially vary from
+what the user intended. So far, the exception prints is message in the console, but its function can easily be used in other ways.
+
+
 In this readme, I did not explicitly mention all functions in each class, the aim of this text was to get the reader
 acquainted with the philosophy of the project.
-
 The reader is of course very much invited to study and perhaps improve the code (There are certainly more efficient
 algortihms than long multiplication and long division, at the moment of coding, the author did not feel numerically proficient
 enough to implement e.g. Karatsuba's algorithm, which I have only briefly heard of. There is probably also a similar thing for
