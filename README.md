@@ -56,9 +56,8 @@ to proceed with caution when e.g. adding two large (relatively to the size of th
 where BigInt a has '6' in position 199 (or other value of N-1 in the event of changing BigInt's range), the operator + will return
 a BigInt with a '2' in position 199 and the carry, since it cannot be added anywhere, is simply deleted when the function resolves.
 
-By default, attemped division by zero returns its dividend, modulo of this operation returns zero. In both cases, the exception
-tackling this problem lets the user know in the console. The exception returns its message in a function, so in other uses of the
-code, this message can easily be printed elsewhere.
+By default, attemped division by zero returns its dividend, modulo of this operation returns zero. In both cases, the program lets
+the user know (in the console).
 
 Another place where something could go wrong are the constructors, or rather invalid inputs into them. This issue is tackled
 via an exception and any input, which is not among '0' and '9' is changed to '0'. The excpetion lets the user know that it changed
