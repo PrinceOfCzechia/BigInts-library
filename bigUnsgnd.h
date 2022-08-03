@@ -7,7 +7,6 @@ class BigUnsgnd: public Charray
 {
     // big unsigned extends charray with arithmetic properties
     Charray digits;
-    friend class BigInt;
 public:
     BigUnsgnd();
     BigUnsgnd(unsigned long value);
