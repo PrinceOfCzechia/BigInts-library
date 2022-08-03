@@ -14,8 +14,9 @@ public:
     BigInt();
     ~BigInt();
     BigInt(long val);
-    BigInt(Charray val);
-    BigInt(BigUnsgnd val);
+    BigInt(char array[], bool sign=1);
+    BigInt(Charray val, bool sign=1);
+    BigInt(BigUnsgnd val, bool sign=1);
     void print();
     void printShort();
     BigUnsgnd getAbs();
