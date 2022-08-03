@@ -36,7 +36,12 @@ are not implemented here.
 
 BigInt has a BigUnsgnd property - its absolute value - and a bool for sign, where 1 or true represents +, while 0 or false represents -.
 Arithmetic operations are implemented by performing analogical operation on BigUnsgnds - absolute values of concerned BigInts - and
-adjusting the result's sign according to signs and absolute values of original BigInts
+adjusting the result's sign according to signs and absolute values of original BigInts.
+
+<h3>Exception files</h3>
+
+In this program, exceptions tackle two possible errors: invalid input into a constructor on Charray level (since all instances
+of BigInt contain an instance of Charray) and division by zero and related issue with modulo.
 
 
 <h3>Expected behaviour</h3>
@@ -51,6 +56,18 @@ to proceed with caution when e.g. adding two large (relatively to the size of th
 where BigInt a has '6' in position 199 (or other value of N-1 in the event of changing BigInt's range), the operator + will return
 a BigInt with a '2' in position 199 and the carry, since it cannot be added anywhere, is simply deleted when the function resolves.
 
+By default, attemped division by zero returns its dividend, modulo of this operation returns zero. In both cases, the exception
+tackling this problem lets the user know in the console. The exception returns its message in a function, so in other uses of the
+code, this message can easily be printed elsewhere.
+
+Another place where something could go wrong are the constructors, or rather invalid inputs into them. This issue is tackled
+via an exception and any input, which is not among '0' and '9' is changed to '0'. The excpetion lets the user know that it changed
+their values and the calculations may potentially vary from what the user intended. So far, the exception prints is message
+in the console, but its function can easily be used in other ways.
+
+When a constructor is given an array of length larger than N as an input, the BigInt constructed contains only the last N elements
+(numerals) from the array.
+
 
 **Author's notes:**
 
@@ -60,15 +77,8 @@ deems they might come in handy while using the library for actual calculations o
 of them are redundant though.
 
 
-Aside from logical errors, which are hopefully tackled by now, only place where something could go wrong are the constructors,
-or rather invalid inputs into constructors. This issue is tackled via an exception and any input, which is not among '0' and '9'
-is changed to '0'. The excpetion lets the user know that it changed their values and the calculations may potentially vary from
-what the user intended. So far, the exception prints is message in the console, but its function can easily be used in other ways.
-
-
 In this readme, I did not explicitly mention all functions in each class, the aim of this text was to get the reader
 acquainted with the philosophy of the project.
-The reader is of course very much invited to study and perhaps improve the code (There are certainly more efficient
-algortihms than long multiplication and long division, at the moment of coding, the author did not feel numerically proficient
-enough to implement e.g. Karatsuba's algorithm, which I have only briefly heard of. There is probably also a similar thing for
-division) if they feel like it.
+The reader is of course very much invited to study and perhaps improve the code (there are certainly more efficient
+algortihms than long multiplication and long division, at the moment of coding, but implementing them was not the purpose
+of this program) if they feel like it.
