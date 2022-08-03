@@ -8,15 +8,13 @@
 class Charray
 {
     char array[N];
-    void setNum(unsigned n, unsigned i);
-    char getNum(unsigned i);
-    friend class BigUnsgnd;
-    friend class BigInt;
 public:
     Charray();
     Charray(unsigned long n);
     Charray(char arr[]);
     ~Charray();
+    void setNum(unsigned n, unsigned i);
+    char getNum(unsigned i);
     void print();
     void printShort();
     void fillWithZeros();
