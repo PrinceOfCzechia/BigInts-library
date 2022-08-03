@@ -1,7 +1,7 @@
 #include "bigInt.h"
 #include "bigIntExcpt.h"
 
-// BASIC nonarithmetic FUNCTIONS for BigInt
+// basic nonarithmetic functions for BigInt
 
 BigInt::BigInt()
 {
@@ -15,16 +15,22 @@ BigInt::BigInt(long val)
     sgn = (val>=0 ? 1 : 0);
 }
 
-BigInt::BigInt(Charray val)
+BigInt::BigInt(char array[], bool sign)
 {
-    abs = BigUnsgnd(val);
-    sgn = 1;
+    abs = BigUnsgnd(array);
+    sgn = sign;
 }
 
-BigInt::BigInt(BigUnsgnd val)
+BigInt::BigInt(Charray val, bool sign)
+{
+    abs = BigUnsgnd(val);
+    sgn = sign;
+}
+
+BigInt::BigInt(BigUnsgnd val, bool sign)
 {
     abs = val;
-    sgn = 1;
+    sgn = sign;
 }
 
 BigInt::~BigInt(){}
@@ -131,6 +137,7 @@ bool BigInt::operator<=(BigInt b)
 // ARITHMETICS
 
 // ADDITION, SUBTRACTION and overloaded OPERATORS
+// addition and subtraction of numbers are also overloaded
 
 BigInt add(BigInt a, BigInt b)
 {
@@ -166,6 +173,7 @@ BigInt BigInt::operator-(BigInt b)
 }
 
 // MULTIPLICATION and overloaded OPERATOR
+// another OPERATOR overloads MULTIPLICATION BY NUMBER
 
 BigInt multiply(BigInt a, BigInt b)
 {
@@ -181,6 +189,7 @@ BigInt BigInt::operator*(BigInt b)
 }
 
 // DIVISION and overloaded OPERATOR
+// as usual, division by number is also overloaded
 
 BigInt divide(BigInt a, BigInt b)
 {
@@ -206,6 +215,7 @@ BigInt BigInt::operator/(BigInt b)
 
 // MODULO and overloaded OPERATOR
 // the definition of sgn works such, that (a/b)*b + a%b = a
+// the operator can also take a number as an argument
 
 BigInt modulo(BigInt a, BigInt b)
 {
