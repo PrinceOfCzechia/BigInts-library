@@ -1,7 +1,7 @@
 <h1>BigInts library</h1>
 
-a school project from the 3rd semester at Faculty of Nuclear Sciences and Physical Engineering (FNSPE),
-Czech Technical University (CTU), Prague, written by Petr Kral in 2022
+A school project from the 3rd semester at Faculty of Nuclear Sciences and Physical Engineering (FNSPE),
+Czech Technical University (CTU), Prague, written by Petr Kral in 2022.
 
 
 The code (most likely) accompanying this file implements arithmetic operations with numbers up to two hundred digits long
@@ -25,7 +25,7 @@ and print a Charray to the console.
 
 <h3>bigUnsgnd.h and bigUnsgnd.cpp</h3>
 
-BigUnsgnd extends charray with arithmetic operations and overloads operators +, -, *, / and %. The desired manipulation is achieved via
+BigUnsgnd extends charray with arithmetic operations and overloads operators +, -, \*, / and %. The desired manipulation is achieved via
 Charray functions, several auxiliary functions and algorithms of long (a.k.a. by hand or the traditional way) 
 addition, subtraction, multiplication and division. Note that subtraction is actually differentiation in this case, since there is no
 sign for BigUnsgnd. I prefered to use the word 'subtract' though, because differentiation may imply some derivative shenanigans which
@@ -48,8 +48,8 @@ of BigInt contain an instance of Charray) and division by zero and related issue
 
 All the operations +, -, * and / work just as the reader would expect and could calculate by hand.
 
-I frankly do not know, whether and how modulo of negative numbers is defined. In this program, I define modulo in such way,
-that a result of (integer) division times the divisor plus modulo add up the original dividend, e.g. (a/b)*b + a%b = a.
+In this program, I define modulo in such way, that a result of (integer) division times the divisor plus modulo add up
+the original dividend, e.g. (a/b)\*b + a%b = a.
 
 In the event of array overflow, the overflowing cipher is discarded, so just like with any other data type, it is most recommended
 to proceed with caution when e.g. adding two large (relatively to the size of the data type) numbers. For example adding a+a,
