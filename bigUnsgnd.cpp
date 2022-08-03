@@ -1,6 +1,6 @@
 #include "bigUnsgnd.h"
 
-// BASIC nonarithmetic functions for BigUnsgnd follow
+// basic nonarithmetic functions for BigUnsgnd follow
 
 BigUnsgnd::BigUnsgnd()
 {
@@ -116,7 +116,7 @@ bool BigUnsgnd::operator!=(BigUnsgnd b)
 
 BigUnsgnd add(BigUnsgnd a, BigUnsgnd b)
 {
-    BigUnsgnd c = BigUnsgnd(a);
+    BigUnsgnd c(a);
     unsigned carry = 0;
     for(unsigned i=0; i<N; i++)
     {
@@ -171,7 +171,7 @@ BigUnsgnd BigUnsgnd::operator-(BigUnsgnd b)
 
 BigUnsgnd BigUnsgnd::multiplyBy(unsigned q)
 {
-    BigUnsgnd result = BigUnsgnd();
+    BigUnsgnd result;
     unsigned carry = 0;
     unsigned aux = 0;
     for(unsigned i=0; i<N; i++)
@@ -193,7 +193,7 @@ BigUnsgnd BigUnsgnd::operator*(unsigned c)
 
 BigUnsgnd BigUnsgnd::shiftLeft(unsigned int q)
 {
-    BigUnsgnd result = BigUnsgnd();
+    BigUnsgnd result;
     for(unsigned i=0; i<N-q; i++)
     {
         result.setNum(this->getNum(i)-'0', i+q);
@@ -206,7 +206,7 @@ BigUnsgnd BigUnsgnd::shiftLeft(unsigned int q)
 
 BigUnsgnd multiply(BigUnsgnd a, BigUnsgnd b)
 {
-    BigUnsgnd result = BigUnsgnd();
+    BigUnsgnd result;
     for(unsigned i=0; i<N; i++)
     {
         result = add(result, (a*(b.getNum(i)-'0')).shiftLeft(i));
@@ -223,7 +223,7 @@ BigUnsgnd BigUnsgnd::operator*(BigUnsgnd b)
 
 BigUnsgnd BigUnsgnd::shiftRight()
 {
-    BigUnsgnd result = BigUnsgnd();
+    BigUnsgnd result;
     for(unsigned i=1; i<N; i++)
     {
         result.setNum((this->getNum(i)-'0'),i-1);
@@ -236,7 +236,7 @@ BigUnsgnd BigUnsgnd::shiftRight()
 
 BigUnsgnd divide(BigUnsgnd a, BigUnsgnd b)
 {
-    BigUnsgnd result = BigUnsgnd();
+    BigUnsgnd result;
     BigUnsgnd prefix = a;
     unsigned c = 0;
     unsigned cnt = 0;
