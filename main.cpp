@@ -10,26 +10,27 @@ using namespace std;
 
 int main()
 {
-    int aux1 = 4;
-    Charray a = Charray(aux1);
+    int aux1 = 6;
+    Charray a(aux1);
 
-    char aux2[] = {'1','0','7','7','3','1','3','\0'};
-    Charray b = Charray(aux2);
+    char aux2[] = {'1','0','7','7','3','2','3','\0'};
+    Charray b(aux2);
 
 
-    BigInt c = BigInt(a);
+    BigInt c(aux1); // number constructor
     //c.setSgn(0);
     cout << "c=";
     c.printShort();
 
 
-    BigInt d = BigInt(b);
+    BigInt d(aux2,0); // array constructor
     //d.setSgn(0);
     cout << "d=";
     d.printShort();
 
+    BigInt e;
 
-    BigInt e = d/c;
+    e = d/c;
     cout << "e=";
     e.printShort();
 
@@ -38,17 +39,17 @@ int main()
     f.printShort();
 
     /*
-    BigInt e = d-c;
+    e = d-c;
     e.printShort();
     */
 
     /*
-    BigInt e = c*d;
+    e = c*d;
     e.printShort();
     */
 
     /*
-    BigInt e = c-d;
+    e = c+d;
     e.printShort();
     */
 
