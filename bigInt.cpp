@@ -47,6 +47,13 @@ void BigInt::printShort()
     this->abs.printShort();
 }
 
+std::ostream &operator<<(std::ostream &out, BigInt b)
+{
+    b.getSgn()==1 ? out<<'+' : out<<'-';
+    out<<b.getAbs();
+    return out;
+}
+
 BigUnsgnd BigInt::getAbs()
 {
     return this->abs;
@@ -137,7 +144,6 @@ bool BigInt::operator<=(BigInt b)
 // ARITHMETICS
 
 // ADDITION, SUBTRACTION and overloaded OPERATORS
-// addition and subtraction of numbers are also overloaded
 
 BigInt add(BigInt a, BigInt b)
 {
@@ -173,7 +179,6 @@ BigInt BigInt::operator-(BigInt b)
 }
 
 // MULTIPLICATION and overloaded OPERATOR
-// another OPERATOR overloads MULTIPLICATION BY NUMBER
 
 BigInt multiply(BigInt a, BigInt b)
 {
@@ -189,18 +194,12 @@ BigInt BigInt::operator*(BigInt b)
 }
 
 // DIVISION and overloaded OPERATOR
-// as usual, division by number is also overloaded
 
 BigInt divide(BigInt a, BigInt b)
 {
-    try
+    if(b==BigInt())
     {
-        if(b==BigInt()) throw BigIntException("WARNING: Attemped division by zero");
-    }
-    catch (BigIntException e)
-    {
-        std::cout<<e.what()<<std::endl;
-        return a;
+        throw BigIntException("WARNING: Attemped division by zero");
     }
     BigInt result = BigInt();
     result.setAbs(a.getAbs()/b.getAbs());
@@ -215,19 +214,10 @@ BigInt BigInt::operator/(BigInt b)
 
 // MODULO and overloaded OPERATOR
 // the definition of sgn works such, that (a/b)*b + a%b = a
-// the operator can also take a number as an argument
 
 BigInt modulo(BigInt a, BigInt b)
 {
-    try
-    {
-        if(b==BigInt()) throw BigIntException("WARNING: Attemped division by zero");
-    }
-    catch (BigIntException e)
-    {
-        std::cout<<e.what()<<std::endl;
-        return BigInt();
-    }
+    if(b==BigInt()) throw BigIntException("WARNING: Attempting to calculate remainder of division by zero");
     BigInt result = BigInt();
     result.setAbs(a.getAbs()%b.getAbs());
     result.setSgn(a.getSgn());
