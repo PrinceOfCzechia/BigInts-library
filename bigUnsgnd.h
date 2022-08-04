@@ -15,6 +15,7 @@ public:
     ~BigUnsgnd();
     void setNum(unsigned n, unsigned i);
     char getNum(unsigned i);
+    Charray getDigits();
     void print();
     void printShort();
     BigUnsgnd multiplyBy(unsigned q);
@@ -39,6 +40,8 @@ public:
     BigUnsgnd operator/(BigUnsgnd b);
     BigUnsgnd operator%(BigUnsgnd b);
 };
+
+std::ostream& operator<<(std::ostream &out, BigUnsgnd b);
 
 BigUnsgnd add(BigUnsgnd a, BigUnsgnd b);
 BigUnsgnd difference(BigUnsgnd a, BigUnsgnd b);
