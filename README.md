@@ -20,6 +20,7 @@ This file functions solely to **state maximum length** of a single BigInt via a 
 
 Class **Charray provides an array of characters and length *N***. Its functions allow it to create a new instance in several ways, acces
 individual 'numbers' - characters *'0'*, *'1'*, *'2'*, *'3'*, *'4'*, *'5'*, *'6'*, *'7'*, *'8'* and *'9'* - change their value and add a Charray to a stream.
+Here, the default option is *cout*, but the user can adjust this to their liking.
 
 
 <h3>bigUnsgnd.h and bigUnsgnd.cpp</h3>
