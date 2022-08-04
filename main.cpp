@@ -10,47 +10,61 @@ using namespace std;
 
 int main()
 {
-    int aux1 = 6;
-    Charray a(aux1);
+    int aux1 = 69420;
+    //Charray a(aux1);
 
-    char aux2[] = {'1','0','7','7','3','2','3','\0'};
-    Charray b(aux2);
+    char aux2[] = {'1','f','7','7','3','2','3','\0'};
+    //Charray b(aux2);
 
-
-    BigInt c(aux1); // number constructor
+    BigInt c(aux1); // number constructor, sign is given by the argument
     //c.setSgn(0);
-    cout << "c=";
-    c.printShort();
+    cout << "c=" << c; //c.printShort();
 
 
-    BigInt d(aux2,0); // array constructor
-    //d.setSgn(0);
-    cout << "d=";
-    d.printShort();
+    BigInt d(aux2,0); // array constructor, setting sign to minus
+    cout << "d=" << d; //d.printShort();
 
-    BigInt e;
 
-    e = d/c;
-    cout << "e=";
-    e.printShort();
+    //BigInt e;
 
-    BigInt f = d%c;
-    cout << "f=";
-    f.printShort();
+    /*
+    try
+    {
+        e = d/c;
+        cout << "d/c=" << e;
+    }
+    catch(exception &e)
+    {
+        cerr<<e.what()<<endl;
+        return 1;
+    }
+    */
+
+    /*
+    try
+    {
+        BigInt f = d%c;
+        cout << "d%c=" << f;
+    }
+    catch (exception &e)
+    {
+        cerr<<e.what()<<endl;
+    }
+    */
 
     /*
     e = d-c;
-    e.printShort();
+    cout << "d-c=" << e;
     */
 
     /*
     e = c*d;
-    e.printShort();
+    cout << "c*d=" << e;
     */
 
     /*
     e = c+d;
-    e.printShort();
+    cout << "c+d=" << e;
     */
 
     return 0;
