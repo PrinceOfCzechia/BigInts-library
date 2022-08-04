@@ -15,9 +15,11 @@ public:
     ~Charray();
     void setNum(unsigned n, unsigned i);
     char getNum(unsigned i);
-    void print();
-    void printShort();
+    void print(std::ostream &out = std::cout);
+    void printShort(std::ostream &out = std::cout);
     void fillWithZeros();
 };
+
+std::ostream& operator<<(std::ostream &out, Charray a);
 
 #endif // CHARRAY_H
