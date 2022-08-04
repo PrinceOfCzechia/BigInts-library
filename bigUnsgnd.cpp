@@ -34,6 +34,12 @@ void BigUnsgnd::printShort()
     this->digits.printShort();
 }
 
+std::ostream& operator<<(std::ostream &out, BigUnsgnd b)
+{
+    out<<b.getDigits();
+    return out;
+}
+
 void BigUnsgnd::setNum(unsigned n, unsigned i)
 {
     this->digits.setNum(n,i);
@@ -42,6 +48,11 @@ void BigUnsgnd::setNum(unsigned n, unsigned i)
 char BigUnsgnd::getNum(unsigned i)
 {
     return this->digits.getNum(i);
+}
+
+Charray BigUnsgnd::getDigits()
+{
+    return this->digits;
 }
 
 // COMPARATIVE functions
