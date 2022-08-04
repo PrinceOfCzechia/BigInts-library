@@ -1,6 +1,5 @@
 #include "charray.h"
 #include "string.h"
-#include "charrayExcpt.h"
 
 // CONSTRUCTORS and AUXILIARY functions
 
@@ -48,14 +47,11 @@ Charray::~Charray(){}
 
 void Charray::setNum(unsigned n, unsigned i)
 {
-    try
+    if(n<10) this->array[i]=n+'0';
+    else
     {
-        if(n<10) this->array[i]=n+'0';
-        else throw (CharrayException("Invalid input was changed to '0'"));
-    }
-    catch (CharrayException e)
-    {
-        std::cout<<e.what()<<std::endl;
+        std::ostream &out = std::cerr;
+        out<<"WARNING: Invalid input was changed to zero"<<std::endl;
         this->array[i]='0';
     }
 }
@@ -65,16 +61,16 @@ char Charray::getNum(unsigned i)
     return this->array[i];
 }
 
-void Charray::print()
+void Charray::print(std::ostream &out)
 {
     for(unsigned i=0; i<N; i++)
     {
-        std::cout<<this->getNum(N-i-1);
+        out<<this->getNum(N-i-1);
     }
-    std::cout<<std::endl;
+    out<<std::endl;
 }
 
-void Charray::printShort()
+void Charray::printShort(std::ostream &out)
 {
     bool virgin = 1;
     for(unsigned i=0; i<N; i++)
@@ -85,4 +81,18 @@ void Charray::printShort()
     }
     if(virgin) std::cout<<'0';
     std::cout<<std::endl;
+}
+
+std::ostream& operator<<(std::ostream &out, Charray a)
+{
+    bool virgin = 1;
+    for(unsigned i=0; i<N; i++)
+    {
+        char aux = a.getNum(N-i-1);
+        if(aux!='0') virgin = 0;
+        if(!virgin) std::cout<<aux;
+    }
+    if(virgin) std::cout<<'0';
+    std::cout<<std::endl;
+    return out;
 }
