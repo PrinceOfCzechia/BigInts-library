@@ -43,6 +43,7 @@ public:
     BigInt operator/(BigInt b);
     BigInt operator%(BigInt b);
 };
+std::ostream &operator<<(std::ostream &out, BigInt b);
 
 BigInt add(BigInt a, BigInt b);
 BigInt multiply(BigInt a, BigInt b);
