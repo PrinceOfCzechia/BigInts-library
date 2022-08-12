@@ -42,6 +42,7 @@ public:
     BigInt operator*(BigInt b);
     BigInt operator/(BigInt b);
     BigInt operator%(BigInt b);
+    BigInt operator^(unsigned q);
 };
 std::ostream &operator<<(std::ostream &out, BigInt b);
 
@@ -49,5 +50,6 @@ BigInt add(BigInt a, BigInt b);
 BigInt multiply(BigInt a, BigInt b);
 BigInt divide(BigInt a, BigInt b);
 BigInt modulo(BigInt a, BigInt b);
+BigInt power(BigInt b, unsigned q);
 
 #endif // BIGINT_H
