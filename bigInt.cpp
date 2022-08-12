@@ -228,3 +228,22 @@ BigInt BigInt::operator%(BigInt b)
 {
     return modulo(*this,b);
 }
+
+// POWER functionality and overloaded OPERATOR
+// positive integer powering is implemented
+
+BigInt power(BigInt b, unsigned q)
+{
+    if(q==0) return BigInt(1);
+    BigInt result = b;
+    for(unsigned i=1; i<q; i++)
+    {
+        result=result*b;
+    }
+    return result;
+}
+
+BigInt BigInt::operator^(unsigned q)
+{
+    return power(*this,q);
+}
