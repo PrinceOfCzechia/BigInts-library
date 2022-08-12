@@ -7,7 +7,7 @@ Czech Technical University (CTU), Prague, written by Petr Kral in 2022.
 The code (most likely) accompanying this file implements arithmetic operations with numbers **up to two hundred digits long**
 (or any other number respectively, the length can be easily adjusted via the file *range.h*) represented as arrays of characters. The
 ultimate goal was to provide class *BigInt*, a 'data type' which implements **addition, subtraction, multpilication, division** and **modulo**
-operations on instances of itself and can as such be treated as a regular integer of chosen maximum length.
+operations and **powering** to a positive integer on instances of itself and can as such be treated as a regular integer of chosen maximum length.
 Description of individual files' functions follows:
 
 
@@ -98,8 +98,16 @@ deems they might come in handy while using the library for actual calculations o
 of them are redundant though.
 
 
-In this readme, I did not explicitly mention all functions in each class, the aim of this text was to get the reader
-acquainted with the philosophy of the project.
+In this library, one can only power to a positive integer (*unsigned*). Why positive? Beacuse powering to a negative number is not very
+interesting, if one can only use integer division. Why *unsigned* (a conventional data type rather than *BigInt*)? Because powering to a long
+number is also not an interesting operation, an overflow occurs super fast and the calculated result has zero relation with reality. The
+basic range of *integer* is by far enough to diverge whenever powering anything other than *0* and *1* to any larger number. This still adds
+a ton of space for computations outside of range of conventional data types, since *long int* is 'only' up to 2^63 large.
+
+
+Note that this file is no documentation. In this readme, I did not explicitly mention all functions in each class. Instead, the aim of this text
+was to get the reader acquainted with the philosophy of the project.
+
 
 The reader is of course very much invited to study and perhaps improve the code (there are certainly more efficient
 algortihms than long multiplication and long division, but implementing them was not the purpose of this program)
