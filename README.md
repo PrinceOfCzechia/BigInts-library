@@ -67,7 +67,7 @@ try {
 
 <h3>Expected behaviour</h3>
 
-All the operations *+*, *-*, *** and */* work just as the reader would expect and could calculate by hand.
+All the operations *+*, *-*, *\** and */* work just as the reader would expect and could calculate by hand.
 
 In this program, I define modulo in such way, that a result of (integer) division times the divisor plus modulo add up
 the original dividend, e.g. *(a/b)\*b + a%b = a*. This is in line with the original C/C++ definiton.
@@ -88,6 +88,10 @@ When a constructor is given an array of length larger than *N* as an input, the 
 
 
 **Author's notes:**
+
+The order in which numbers are stored in arrays was chosen so that their index corresponds to the power of ten by which the particular number would be multiplied
+in decimal system (e.g. *69420* has a *0* at the index *0*, a *2* at the index *1*, a *4* at the index *2* etc). This means that printing has to be done in reverse,
+but helps keeping arithmetic operations more intuitive.
 
 Functions *print()* and *printShort()* are kept, but not really recommended to use for printing, since the overloaded *<<* operator
 seems to be much more convenient to use.
