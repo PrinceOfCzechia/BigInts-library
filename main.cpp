@@ -25,7 +25,22 @@ int main()
     cout << "d=" << d; //d.printShort();
 
 
-    //BigInt e;
+    BigInt e;
+
+    /*
+    e = c+d;
+    cout << "c+d=" << e;
+    */
+
+    /*
+    e = d-c;
+    cout << "d-c=" << e;
+    */
+
+    /*
+    e = c*d;
+    cout << "c*d=" << e;
+    */
 
     /*
     try
@@ -49,22 +64,8 @@ int main()
     catch (exception &e)
     {
         cerr<<e.what()<<endl;
+        return 1;
     }
-    */
-
-    /*
-    e = d-c;
-    cout << "d-c=" << e;
-    */
-
-    /*
-    e = c*d;
-    cout << "c*d=" << e;
-    */
-
-    /*
-    e = c+d;
-    cout << "c+d=" << e;
     */
 
     return 0;
