@@ -70,29 +70,29 @@ void Charray::print(std::ostream &out)
     out<<std::endl;
 }
 
-void Charray::printShort(std::ostream &out)
+void Charray::printShort(std::ostream& out)
 {
     bool virgin = 1;
     for(unsigned i=0; i<N; i++)
     {
         char aux = this->getNum(N-i-1);
         if(aux!='0') virgin = 0;
-        if(!virgin) std::cout<<aux;
+        if(!virgin) out<<aux;
     }
-    if(virgin) std::cout<<'0';
-    std::cout<<std::endl;
+    if(virgin) out<<'0';
+    out<<std::endl;
 }
 
-std::ostream& operator<<(std::ostream &out, Charray a)
+std::ostream& operator<<(std::ostream& out, Charray a)
 {
     bool virgin = 1;
     for(unsigned i=0; i<N; i++)
     {
         char aux = a.getNum(N-i-1);
         if(aux!='0') virgin = 0;
-        if(!virgin) std::cout<<aux;
+        if(!virgin) out<<aux;
     }
-    if(virgin) std::cout<<'0';
-    std::cout<<std::endl;
+    if(virgin) out<<'0';
+    out<<std::endl;
     return out;
 }
